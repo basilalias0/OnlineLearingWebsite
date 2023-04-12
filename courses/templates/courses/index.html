@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodigyy
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+header{
+    width: 100%;
+    height: 130px;
+    text-align: center;
+    padding-top: 30px;
+    color: orange;
+    background-color: white;
+}
+body{
+    margin: 0;
+    background: orange;
+}
+.nav-pills {
+    --bs-nav-pills-border-radius: 0.375rem;
+    --bs-nav-pills-link-active-color: #fff;
+    --bs-nav-pills-link-active-bg: #ffa500;
+}
+
+.nav-pills {
+    --bs-nav-pills-border-radius: 0.375rem;
+    --bs-nav-pills-link-active-color: #fff;
+    --bs-nav-pills-link-active-bg: #ffa500;
+}
+.nav {
+    --bs-nav-link-padding-x: 1rem;
+    --bs-nav-link-padding-y: 0.5rem;
+    --bs-nav-link-font-weight: ;
+    --bs-nav-link-color: #ffc107;
+    --bs-nav-link-hover-color: #ffc107;
+    --bs-nav-link-disabled-color: var(--bs-secondary-color);
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.card{
+    margin-top: 30px;
+    </style>
+
+</head>
+<body>
+    <header>
+        <h2>Prodigyy</h2>
+        <h3>Together, we make difference.</h3>
+    </header>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="nav nav-pills nav-fill">
+              <li class="nav-item">
+                <a class="nav-link active" href="">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/prodigyy/course">Course</a>
+              </li>
+          </ul>
+          <ul class="nav nav-pills nav-fill">
+      {% if user.is_authenticated %}
+
+      <li class="nav-item mr-auto">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+      <li class="nav-item mr-auto">
+        <a class="nav-link mr-auto " href="#">Welcome, {{user.first_name}}</a>
+      </li>
+
+      {% else %}
+
+      <li class="nav-item mr-auto">
+        <a class="nav-link mr-auto" href="/login">Login</a>
+      </li>
+
+      {% endif %}
+    </ul>
+      </div>
+    </nav>
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">About</h5>
+
+                    <p class="card-text">eLearning has completely transformed the way in which learning is imparted to students. Unlike traditional chalk and
+                     board method of teaching, eLearning makes learning simpler, easier, and more effective. Here are 9 features of eLearning that make it
+                     advantageous to students.</p>
+                     <p class="card-text">Today's learners want relevant, mobile, self-paced, and personalized content. This need is fulfilled with the online
+                     mode of learning; here, students can learn at their own comfort and requirement. Let's have an analytical look at the advantages of online learning.</p>
+                     <ol class="card-text">
+                        <li>Online Learning Accommodates Everyone’s Needs</li>
+                        <li>Lectures Can Be Taken Any Number Of Times</li>
+                        <li>Offers Access To Updated Content</li>
+                        <li>Quick Delivery Of Lessons</li>
+                        <li>Scalability</li>
+                        <li>Consistency</li>
+                        <li>Reduced Costs</li>
+                        <li>Effectiveness</li>
+                        <li>Less Impact On Environment</li>
+                     </ol>
+
+                </div>
+              </div>
+        </div>
+</body>
+</html>
