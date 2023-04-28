@@ -25,12 +25,12 @@ body{
     --bs-nav-pills-link-active-color: #fff;
     --bs-nav-pills-link-active-bg: #ffa500;
 }
+.btn{
+    background-color: #ffa500;
+    color:#fff;
+    }
 
-.nav-pills {
-    --bs-nav-pills-border-radius: 0.375rem;
-    --bs-nav-pills-link-active-color: #fff;
-    --bs-nav-pills-link-active-bg: #ffa500;
-}
+
 .nav {
     --bs-nav-link-padding-x: 1rem;
     --bs-nav-link-padding-y: 0.5rem;
@@ -93,29 +93,62 @@ body{
     </ul>
       </div>
     </nav>
-      <div class="container">
-          <div class="row">
-              {% for item in course %}
-              <div class= "col">
-                    <div class="card" style="width: 25rem;padding-top: 10px;margin-top:10px">
+
+    <div class="container">
+
+        <div class="row ">
+            <div class="col mr-auto ">
+                  <div class="card" style=";padding-top: 10px;margin-top:10px">
                         <div style="width:100%; text-align:center">
-                      <img class="card-img-top" style="width: 12rem;height: 10rem" src="{{item.thumbnail}}"
+                      <img class="card-img-top" style="width: 12rem;height: 10rem" src="{{course.thumbnail}}"
                            alt="Card image cap">
                         </div>
                       <div class="card-body">
-                        <h5 class="card-title">{{item}}</h5>
-                        <P class="card-text">₹ {{item.price}}</P>
-                          <div >
-                              <a href="/prodigyy/checkout/{{item.slug}}" class="btn btn-primary">Enroll Now!!</a>
-                              <a href="/prodigyy/video/{{item.slug}}" class="btn btn-primary">Show More</a>
-                          </div>
+                          <p class="display-5"><b>{{course.name}}</b></p>
+                          <hr>
+                          <p class="display-7">{{course.description}}</p>
+                          <hr>
+                          <p class="display-6">Payable amount: <b>₹{{course.price}}</b></p>
+                          <a class="btn  border"href="?action=create_payment">Click to enroll</a>
                       </div>
                       </div>
-              </div>
-              {% endfor %}
 
 
-          </div>
-      </div>
+
+            </div>
+        </div>
+    </div>
+{% if order is not None %}
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+var options = {
+    "key": "rzp_test_OxL33XocIyAOiB",
+    "amount": "{{course.price}}",
+    "currency": "INR",
+    "name": "{{user.name}}",
+    "description": "Transaction for {{course.name}}",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AEo_circle_orange_letter-p.svg&psig=AOvVaw0BvwB5PMz4GJCZPjOV3O3J&ust=1682723473383000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNjy2siXy_4CFQAAAAAdAAAAABAE",
+    "order_id": "{{order.id}}",
+    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+    "prefill": {
+        "name": "{{user.name}}",
+        "email": "{{user.email}}",
+    },
+
+    "theme": {
+        "color": "#3399cc"
+    }
+}
+var rzp1 = new Razorpay(options)
+    rzp1.open()
+}
+</script>
+
+{% endif %}
+
+
 </body>
 </html>

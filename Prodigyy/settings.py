@@ -118,6 +118,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
+KEY_ID = "rzp_test_OxL33XocIyAOiB"
+KEY_SECRET = "xECef59dyTXt1zeZy8L0xMqy"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 

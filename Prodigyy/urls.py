@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from courses.views import home, courses, video
-from courses.views import login_request, register_request,logout_request
+from courses.views import login_request, register_request,logout_request,checkout
 
 urlpatterns = [
     path('', home, name='home'),
@@ -25,6 +25,7 @@ urlpatterns = [
     path("logout", logout_request, name= "logout"),
     path('prodigyy/course', courses, name='courses'),
     path('prodigyy/video/<str:slug>', video, name='videos'),
+    path('prodigyy/checkout/<str:slug>', checkout, name='checkout'),
     path('admin/', admin.site.urls),
 
 ]

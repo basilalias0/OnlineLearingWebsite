@@ -75,10 +75,6 @@ form {
     color: orange;
     background-color: white;
 }
-body{
-    margin: 0;
-    background: orange;
-}
 a{
 text-decoration:none;
 color:orange;
@@ -136,15 +132,16 @@ color:orange;
     </nav>
   <div class="container py-5">
 	<form method="POST">
-		{% csrf_token %}
         <div class="container">
           <div class="formheader">
             <h3>SignUp</h3>
             <h4>Together, we make difference.</h4>
           </div>
-
-            {{ register_form }}
+            {% csrf_token %}
+            {{ register_form }}<br>
+            <div class="text-center">
           <button type="submit" >Register</button>
+            </div>
         <p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
         </div>
 	</form>

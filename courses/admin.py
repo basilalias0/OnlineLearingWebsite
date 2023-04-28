@@ -1,6 +1,8 @@
 from django.contrib import admin
 from courses.models import Course, Teacher
 from courses.models import Video
+from courses.models import UserCourse
+from courses.models import Payment
 
 
 class TeacherAdmin(admin.TabularInline):
@@ -18,6 +20,8 @@ class CourseAdmin(admin.ModelAdmin):
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Video)
 admin.site.register(Teacher)
+admin.site.register(Payment)
+admin.site.register(UserCourse)
 
 
 
