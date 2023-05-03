@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from courses.views import home, courses, video
+from courses.views import home, courses, video, mycourses
 from courses.views import login_request, register_request,logout_request,checkout,verifypayment
 
 urlpatterns = [
     path('', home, name='home'),
     path("login", login_request, name="login"),
+    path("my_courses", mycourses, name="my_courrses"),
     path("register", register_request, name="register"),
     path("logout", logout_request, name= "logout"),
     path('prodigyy/course', courses, name='courses'),

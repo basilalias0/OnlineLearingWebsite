@@ -75,7 +75,6 @@ def verifypayment(request):
 
             payment.user_course = userCourse
             payment.save()
-            return render(request, template_name="courses/my_courses.html",
-                          context=context)
+            return redirect("my_courses")
         except:
             return HttpResponse("invalid payment details")

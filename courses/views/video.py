@@ -2,8 +2,16 @@ from django.shortcuts import render
 from courses.models import Course,UserCourse
 from courses.models import Video
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
 
-
+@login_required(login_url="login")
+def mycourses(request):
+    user = request.user
+    user_courses = UserCourse.objects.filter(user = user)
+    context={
+        "user_courses" : user_courses
+    }
+    return render(request = request, template_name="courses/my_courses.html", context=context)
 def video(request, slug):
     course = Course.objects.get(slug=slug)
     serial_number = request.GET.get('Lecture')

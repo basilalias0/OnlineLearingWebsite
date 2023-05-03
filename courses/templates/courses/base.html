@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock title %}
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+body{
+    margin: 0;
+    background: orange;
+}
+a{
+text-decoration:none;
+color:orange;
+}
+#video_list{
+    overflow-y:scroll;
+}
+.btn{
+color: #fff;
+background-color: #ffa500
+}
+form {
+    background: white;
+    border: 3px solid #ff7300;
+    margin-top: 100px;
+    border-radius: 12px;
+  }
+
+  input[type=text], input[type=password], input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    border-radius: 12px;
+  }
+  btn{
+  background-color: #ffa500;
+  }
+  button:hover {
+    opacity: 0.8;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+.formheader{
+    text-align: right;
+    padding-right: 10px;
+}
+.psw{
+    padding-right: 20px;
+}
+
+
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+  }
+      header{
+    width: 100%;
+    height: 130px;
+    text-align: center;
+    padding-top: 30px;
+    color: orange;
+    background-color: white;
+}
+}
+
+.nav-pills {
+    --bs-nav-pills-border-radius: 0.375rem;
+    --bs-nav-pills-link-active-color: #fff;
+    --bs-nav-pills-link-active-bg: #ffa500;
+}
+.nav {
+    --bs-nav-link-padding-x: 1rem;
+    --bs-nav-link-padding-y: 0.5rem;
+    --bs-nav-link-font-weight: ;
+    --bs-nav-link-color: #ffc107;
+    --bs-nav-link-hover-color: #ffc107;
+    --bs-nav-link-disabled-color: var(--bs-secondary-color);
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    justify-content: center;
+}
+.row{
+    padding-top: 20px;
+    </style>
+</head>
+<body>
+<header>
+        <h2>Prodigyy</h2>
+        <h3>Together, we make difference.</h3>
+    </header>
+    <nav class="navbar navbar-expand nav navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="nav nav-pills nav-fillnav">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/prodigyy/course">Courses</a>
+              </li>
+          </ul>
+          <ul class="nav nav-pills nav-fill">
+      {% if user.is_authenticated %}
+
+      <li class="nav-item mr-auto">
+        <a class="nav-link" href="/my_courses">My Courses</a>
+      </li>
+      <li class="nav-item mr-auto">
+        <a class="nav-link mr-auto " href="#">Welcome, {{user.first_name}}</a>
+      </li>
+              <li class="nav-item mr-auto">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+
+      {% else %}
+
+      <li class="nav-item mr-auto">
+        <a class="nav-link mr-auto" href="/login">Login</a>
+      </li>
+
+      {% endif %}
+    </ul>
+      </div>
+    </nav>
+{% block content %}
+{% endblock content %}
+
+</body>
+</html>
