@@ -15,12 +15,19 @@ class VideoAdmin(admin.TabularInline):
 
 class CourseAdmin(admin.ModelAdmin):
     inlines = [TeacherAdmin, VideoAdmin]
+    list_display = ['name', 'price', 'active']
+    list_filter = ['active']
+
+class PaymentAdmin(admin.ModelAdmin):
+    model = Payment
+    list_display = ['order_id', 'user', 'course', 'status']
+    list_filter = ["course", 'status']
 
 
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Video)
 admin.site.register(Teacher)
-admin.site.register(Payment)
+admin.site.register(Payment,PaymentAdmin)
 admin.site.register(UserCourse)
 
 

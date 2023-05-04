@@ -15,7 +15,7 @@
                 <li class="list-group-item {% if item == video %} active-video {% endif %}" style="color : orange">
                     <a class="
 
-                    {% if not item.is_preview  %} text-muted no-preview {% endif %}
+                    {% if not enrolled and not item.is_preview and item.is_purchased %} text-muted no-preview {% endif %}
                     {% if item == video %} active-video-link {% endif %}"
 
                        href="?Lecture={{item.serial_number}}">{{item}}</a> </li>

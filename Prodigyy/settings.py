@@ -54,6 +54,7 @@ ROOT_URLCONF = 'Prodigyy.urls'
 
 TEMPLATES = [
     {
+
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['templates'],
         'APP_DIRS': True,
@@ -126,3 +127,14 @@ KEY_SECRET = "xECef59dyTXt1zeZy8L0xMqy"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_FROM = 'prodigyyoo47@gmail.com'
+EMAIL_HOST_USER = 'prodigyyoo47@gmail.com'
+EMAIL_HOST_PASSWORD = 'Lock@123'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+PASSWORD_RESET_TIMEOUT = 14400

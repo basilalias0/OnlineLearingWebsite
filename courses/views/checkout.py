@@ -60,7 +60,6 @@ def checkout(request, slug):
 def verifypayment(request):
     if request.method == "POST":
         data = request.POST
-        context ={}
         try:
             client.utility.verify_payment_signature(data)
             razorpay_order_id = data['razorpay_order_id']
@@ -75,6 +74,6 @@ def verifypayment(request):
 
             payment.user_course = userCourse
             payment.save()
-            return redirect("my_courses")
+            return redirect("courses")
         except:
             return HttpResponse("invalid payment details")

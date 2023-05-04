@@ -1,0 +1,1 @@
+from courses.tokens.tokens import  account_activation_token

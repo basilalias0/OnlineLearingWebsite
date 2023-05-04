@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from courses.views import home, courses, video, mycourses
+from courses.views import home, courses, video, mycourses,activate
 from courses.views import login_request, register_request,logout_request,checkout,verifypayment
 
 urlpatterns = [
@@ -29,5 +29,6 @@ urlpatterns = [
     path('prodigyy/checkout/<str:slug>', checkout, name='checkout'),
     path('verify_payment',verifypayment, name='verify_payment'),
     path('admin/', admin.site.urls),
+    path('activate/<uidb64>/<token>', activate, name='activate'),
 
 ]
