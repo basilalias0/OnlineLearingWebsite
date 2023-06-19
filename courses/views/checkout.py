@@ -9,7 +9,6 @@ import razorpay
 client = razorpay.Client(auth=(KEY_ID, KEY_SECRET))
 
 
-
 def checkout(request, slug):
     course = Course.objects.get(slug=slug)
     user = None
@@ -75,6 +74,6 @@ def verifypayment(request):
 
             payment.user_course = userCourse
             payment.save()
-            return redirect("my_courses")
+            return redirect("courses")
         except:
             return HttpResponse("invalid payment details")
